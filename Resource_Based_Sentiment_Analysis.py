@@ -79,9 +79,9 @@ def RB_Sentiment_Analyser(text_df):
     text_df["Senti Score"] = art_senti_scores
     data = quandl.get("BSE/SENSEX", authtoken="1SnsWfT7hPSiUcZumsa1",start_date = text_df.index.date[-1],end_date = text_df.index.date[0])
     data['sensex_open_to_close_price'] = ((data['Close'] - data['Open'])/data['Open'] )*100
-    text_df.to_excel('RB_SentimentScoreForNifty&Sensex.xlsx', sheet_name='Sheet1', index=True, encoding=None)
-    data.to_excel('Sensex_data_RB.xlsx', sheet_name='Sheet1', index=True, encoding=None)
-    print("2 : xls file is successfully created! named : SentimentScoreForNifty&Sensex.xls , Sensex_data.xls")
+    text_df.to_excel('RB_SentimentScoreForNifty&Sensex.xlsx', sheet_name='Senti_Scores', index=True, encoding=None)
+    data.to_excel('RB_SentimentScoreForNifty&Sensex.xlsx', sheet_name='Sensex_data', index=True, encoding=None)
+    print("xlsx file is successfully created! named : RB_SentimentScoreForNifty&Sensex.xlsx")
     print(text_df)
 
 def parse_article(links,saved_links_title):
